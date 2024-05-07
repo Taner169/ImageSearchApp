@@ -15,8 +15,7 @@ Before you can run this project, you need to have Python and Django installed on
 ## Installation
 
 1. Clone this repository:
-git clone https://github.com/yourusername/ImageSearchApp.git
-
+git clone [https://github.com/yourusername/ImageSearchApp.git](https://github.com/Taner169/ImageSearchApp)
 2. Navigate to the project directory:
 cd ImageSearchApp
 
