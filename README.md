@@ -46,7 +46,7 @@ def get_image_description(image_url):
     except Exception as e:
         print(f"Failed to generate description: {str(e)}")
         return "Description could not be generated."
-   ---
+
 # utils.py
    def generate_description(image_url):
     try:
