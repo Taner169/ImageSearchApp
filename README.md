@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ## Configuration
 1. Set up your prompt in the `bilder/utils.py / bilder/management/update_description`:
 ```python
-#utils.py / update_description
+# update_description
 def get_image_description(image_url):
     """
     Generates a description of an image using OpenAI's API.
@@ -47,6 +47,7 @@ def get_image_description(image_url):
         print(f"Failed to generate description: {str(e)}")
         return "Description could not be generated."
    ---
+# utils.py
    def generate_description(image_url):
     try:
         response = openai.Completion.create(
@@ -60,9 +61,9 @@ def get_image_description(image_url):
         return response.choices[0].text.strip()
     except Exception as e:
         return f"Failed to generate description: {str(e)}"
+```
 
-
-3. Set up your Google Cloud credentials and OpenAI API key in the `settings.py`:
+2. Set up your Google Cloud credentials and OpenAI API key in the `settings.py`:
 ```python
 # settings.py
 OPENAI_API_KEY = 'your_openai_api_key_here'
