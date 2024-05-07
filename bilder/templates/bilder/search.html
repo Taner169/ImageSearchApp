@@ -1,0 +1,23 @@
+{% extends 'bilder/base.html' %}
+{% block title %}Search Images{% endblock %}
+
+{% block content %}
+  <h2>Search for Images</h2>
+  <form method="get" action="{% url 'search' %}">
+    <input type="text" name="q" placeholder="Search for images..." value="{{ query }}">
+    <button type="submit">Search</button>
+  </form>
+  
+  {% if images %}
+    <h3>Search Results:</h3>
+    {% for image in images %}
+      <div class="image">
+        <img src="{{ image.image_url }}" alt="{{ image.description }}">
+        <h3>{{ image.name }}</h3>
+        <p>{{ image.description }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No results found for "{{ query }}".</p>
+  {% endif %}
+{% endblock %}
