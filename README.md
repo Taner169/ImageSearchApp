@@ -69,3 +69,16 @@ OPENAI_API_KEY = 'your_openai_api_key_here'
 GCS_BUCKET_NAME = 'your_google_cloud_storage_bucket_name_here'
 GOOGLE_APPLICATION_CREDENTIALS = 'path/to/your/google-credentials-file.json'
 Configure your database settings in settings.py under the DATABASES configuration.
+```
+
+### Complexity of Operations
+
+1. **Update Images**
+   - The `update_images` operation might experience slower performance due to its complex nature. This process could involve:
+     - **Generating Descriptions for Each Image**: This step requires making API calls to OpenAI for each image to obtain descriptions. The network latency and response times from the OpenAI API can add significant delays.
+     - **Handling Image Data**: This includes downloading and processing image data, which can be time-consuming, especially if the images are large in size.
+
+2. **Update Descriptions**
+   - In contrast, the `update_descriptions` operation is generally faster and less resource-intensive. It focuses on:
+     - **Updating Existing Records**: This primarily involves modifying fields in a database, which is typically quicker as it does not require interaction with external APIs.
+     - **Performing Minor and Efficient Operations**: This might include checking for the existence of records and applying straightforward updates, both of which are operations that consume less time and resources.
